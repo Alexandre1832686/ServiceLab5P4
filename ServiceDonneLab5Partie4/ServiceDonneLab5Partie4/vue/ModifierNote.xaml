@@ -1,0 +1,101 @@
+﻿<Window x:Class="ServiceDonneLab5Partie4.vue.ModifierNote"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ServiceDonneLab5Partie4.vue"
+        mc:Ignorable="d"
+        Title="ModifierNote" Height="450" Width="800">
+    <Window.Resources>
+        <ControlTemplate x:Key="ButtonBaseControlTemplate1" TargetType="{x:Type ButtonBase}">
+            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="Button.IsDefaulted" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFBEE6FD"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFC4E5F6"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                </Trigger>
+                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                    <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" TargetName="border" Value="#66667D"/>
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                    <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" FontFamily="comic sans ms" FontSize="40" FontWeight="ExtraBold" Foreground="RoyalBlue" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">Récupérer les cours d'un étudiant</TextBlock>
+
+
+        <Border Grid.Column="1" Grid.Row="1" Margin="10" Background="White" BorderBrush="Black" BorderThickness="3" CornerRadius="10" Padding="8,20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="8*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock FontFamily="comic sans ms" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Text="Prenom :" ></TextBlock>
+
+                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" Text="{Binding Nom, Mode=TwoWay}"></TextBox>
+                <TextBlock FontFamily="comic sans ms" Grid.Row="1" FontSize="15" HorizontalAlignment="Left" Text="Nom :" ></TextBlock>
+
+                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="1" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" Text="{Binding Nom, Mode=TwoWay}"></TextBox>
+                <TextBlock FontFamily="comic sans ms" Grid.Row="2" FontSize="15" HorizontalAlignment="Left" Text="Note : " ></TextBlock>
+                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="2" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" Text="{Binding Nom, Mode=TwoWay}"></TextBox>
+                <TextBlock FontFamily="comic sans ms" Grid.Row="3" FontSize="15" HorizontalAlignment="Left" Text="Sigle :" ></TextBlock>
+
+                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="3" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" Text="{Binding Nom, Mode=TwoWay}"></TextBox>
+                <TextBlock FontFamily="comic sans ms" Grid.Row="4" FontSize="15" HorizontalAlignment="Left" Text="Session : " ></TextBlock>
+                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="4" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" Text="{Binding Nom, Mode=TwoWay}"></TextBox>
+
+
+            </Grid>
+        </Border>
+
+
+        <Button Content="Envoyer"  Grid.Row="2" Height="40" HorizontalAlignment="right" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0"  Template="{DynamicResource ButtonBaseControlTemplate1}">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Fermer"  Grid.Row="2" Height="40" HorizontalAlignment="Left" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>
