@@ -29,19 +29,28 @@ namespace ServiceDonneLab5Partie4.model
 
             url = ApiHelper.ApiClient.BaseAddress + "mon/GetNomStudentByCodePerma/" + CodePerma;
 
-
-            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url).ConfigureAwait(false))
+            try
             {
-                if (response.IsSuccessStatusCode)
+                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url).ConfigureAwait(false))
                 {
-                    string rep = await response.Content.ReadAsAsync<string>().ConfigureAwait(false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string rep = await response.Content.ReadAsAsync<string>().ConfigureAwait(false);
 
-                    return rep;
+                        return rep;
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
                 }
+            }
+            catch(Exception e)
+            {
+                if (e.Message == "Aucune connexion n’a pu être établie car l’ordinateur cible l’a expressément refusée. (localhost:7067)")
+                    return "Erreur de connection au server api web.";
                 else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
+                    throw e;
             }
 
         }

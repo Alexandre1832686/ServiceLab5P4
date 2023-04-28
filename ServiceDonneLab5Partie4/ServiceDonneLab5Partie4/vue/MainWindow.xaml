@@ -55,72 +55,35 @@
 
         <TextBlock Grid.Column="0" Grid.ColumnSpan="5" FontFamily="comic sans ms" FontSize="40" FontWeight="ExtraBold" Foreground="RoyalBlue" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">Fonctionalités</TextBlock>
 
-        <Button Content="Récupérer le nom d'élève" Grid.Column="1" Grid.Row="1" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="12" Margin="10">
+        <Button Content="Récupérer le nom d'élève" Grid.Column="1" Grid.Row="1" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="12" Margin="10" Click="RecupererNomEtu">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Récupérer les cours d'un élève" Grid.Column="1" Grid.Row="1" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Bottom" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="10" Margin="10">
+        <Button Content="Récupérer les cours d'un élève" Grid.Column="1" Grid.Row="1" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Bottom" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="10" Margin="10" Click="RecupererCourEtu">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Récuérer les diplomes par années" Grid.Column="3" Grid.Row="1" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="10" Margin="10">
+        <Button Content="Récuérer les diplomes par années" Grid.Column="3" Grid.Row="1" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="10" Margin="10" Click="RecupererDiplome">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Créer un cour" Grid.Column="3" Grid.Row="1" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Bottom" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15"  Margin="10">
+        <Button Content="Créer un cour" Grid.Column="3" Grid.Row="1" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Bottom" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15"  Margin="10" Click="CreateCour">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Liste des étudiants dans un cour" Grid.Column="1" Grid.Row="2" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="10" Margin="10">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        
-
-        <Button Content="Supprimer un étudiant" Grid.Column="3" Grid.Row="3" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="10">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Content="Récupérer les cours d'un enseignant" Grid.Column="1" Grid.Row="2" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Bottom" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="9"  Margin="10">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Content="Récupérer le buletin d'un étudiant" Grid.Column="1" Grid.Row="3" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="10" Margin="10">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Content="Modifier une note" Grid.Column="3" Grid.Row="2" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Bottom" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15"  Margin="10">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Content="Ajouter un étudiant à un cour" Grid.Column="3" Grid.Row="2" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="12" Margin="10">
+        <Button Content="Liste des étudiants dans un cour" Grid.Column="1" Grid.Row="2" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="10" Margin="10" Click="ListeEtuCour">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -129,7 +92,44 @@
         </Button>
 
 
-        <Button Content="Paramètre" Grid.Column="5" Grid.Row="0" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="10">
+        <Button Content="Supprimer un étudiant" Grid.Column="3" Grid.Row="3" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="10" Click="SuppEtu">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Récupérer les cours d'un enseignant" Grid.Column="1" Grid.Row="2" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Bottom" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="9"  Margin="10" Click="RecupererCourProf">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Récupérer le buletin d'un étudiant" Grid.Column="1" Grid.Row="3" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="10" Margin="10" Click="RecupererBuletinEtu">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Modifier une note" Grid.Column="3" Grid.Row="2" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Bottom" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15"  Margin="10" Click="ModifieNote">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Ajouter un étudiant à un cour" Grid.Column="3" Grid.Row="2" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="12" Margin="10" Click="AjoutEtuCour">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+        <Button Content="Paramètre" Grid.Column="5" Grid.Row="0" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Top" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="10" Click="Parametres">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

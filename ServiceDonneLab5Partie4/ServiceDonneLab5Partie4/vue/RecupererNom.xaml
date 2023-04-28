@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServiceDonneLab5Partie4.vue"
+        xmlns:viewmodele="clr-namespace:ServiceDonneLab5Partie4.vue_model" 
+        d:DataContext="{d:DesignInstance Type=viewmodele:ProgramVM}"
         mc:Ignorable="d"
         Title="RecupererNom" Height="450" Width="800">
     <Window.Resources>
@@ -65,23 +67,23 @@
 
                 <TextBlock FontFamily="comic sans ms" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Text="Code Permanant :" ></TextBlock>
 
-                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" Text="{Binding Nom, Mode=TwoWay}"></TextBox>
+                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" x:Name="codePerma"></TextBox>
 
                 <TextBlock FontFamily="comic sans ms" Grid.Row="4" FontSize="15" HorizontalAlignment="Left" Text="Résultat : " ></TextBlock>
-                <TextBlock FontFamily="comic sans ms" Grid.Row="4" Grid.Column="2" FontSize="15" HorizontalAlignment="Left" Text="LeNom" ></TextBlock>
+                <TextBlock FontFamily="comic sans ms" Grid.Row="4" Grid.Column="2" FontSize="15" HorizontalAlignment="Left" Text="{Binding RecupererNomNom,Mode=TwoWay}" ></TextBlock>
 
             </Grid>
         </Border>
 
 
-        <Button Content="Envoyer"  Grid.Row="2" Height="40" HorizontalAlignment="right" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0"  Template="{DynamicResource ButtonBaseControlTemplate1}">
+        <Button Content="Envoyer"  Grid.Row="2" Height="40" HorizontalAlignment="right" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0"  Template="{DynamicResource ButtonBaseControlTemplate1}" Click="Button_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Fermer"  Grid.Row="2" Height="40" HorizontalAlignment="Left" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0" >
+        <Button Content="Fermer"  Grid.Row="2" Height="40" HorizontalAlignment="Left" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0" Click="Button_Click_1" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

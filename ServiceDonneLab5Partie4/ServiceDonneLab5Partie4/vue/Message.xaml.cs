@@ -23,5 +23,10 @@ namespace ServiceDonneLab5Partie4.vue
         {
             InitializeComponent();
         }
+
+        private void Fermer(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

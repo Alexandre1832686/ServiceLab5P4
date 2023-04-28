@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServiceDonneLab5Partie4.vue"
         mc:Ignorable="d"
-        Title="Message" Height="450" Width="800">
-    <Grid>
+        Title="Message" Height="250" Width="500">
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" FontFamily="comic sans ms" FontSize="40" FontWeight="ExtraBold" Foreground="RoyalBlue" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Text="Message" x:Name="Msg" TextWrapping="Wrap"></TextBlock>
+
+        <Button Content="Fermer" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="12" Margin="10" Click="Fermer">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
         
     </Grid>
 </Window>

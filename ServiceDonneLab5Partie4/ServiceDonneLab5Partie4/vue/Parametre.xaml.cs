@@ -16,27 +16,18 @@ using System.Windows.Shapes;
 namespace ServiceDonneLab5Partie4.vue
 {
     /// <summary>
-    /// Logique d'interaction pour RecupererNom.xaml
+    /// Logique d'interaction pour Parametre.xaml
     /// </summary>
-    public partial class RecupererNom : Window
+    public partial class Parametre : Window
     {
-        ProgramVM vm;
-        public RecupererNom()
+        public Parametre()
         {
             InitializeComponent();
-            vm = new ProgramVM();
+            ProgramVM vm = new ProgramVM();
             this.DataContext = vm;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if(codePerma.Text != "")
-                vm.GetNom(codePerma.Text);
-            else
-                vm.GetNom("qwertyuipasdfghklxzcvbnmINVLIDCODEPERMANANTqwertyuiopasdfghjklzxcvbnm");
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
