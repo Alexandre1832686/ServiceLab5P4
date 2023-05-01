@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace ServiceDonneLab5Partie4.model
 {
-    internal class cour
+    public class Cour
     {
+        public string? Sigle { get; set; }
+        public string? Titre { get; set; }
+        public int Duree { get; set; }
+
+        public Cour(string sigle, string titre, int duree)
+        {
+            Sigle = sigle;
+            Titre = titre;
+            Duree = duree;
+        }
+        public Cour()
+        { }
     }
 }

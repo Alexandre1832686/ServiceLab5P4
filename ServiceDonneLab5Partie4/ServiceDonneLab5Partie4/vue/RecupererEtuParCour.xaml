@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServiceDonneLab5Partie4.vue"
+        xmlns:viewmodele="clr-namespace:ServiceDonneLab5Partie4.vue_model" 
+        d:DataContext="{d:DesignInstance Type=viewmodele:ProgramVM}"
         mc:Ignorable="d"
         Title="RecupererEtuParCour" Height="450" Width="800">
     <Window.Resources>
@@ -65,10 +67,10 @@
 
                 <TextBlock FontFamily="comic sans ms" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Text="Nom du cour :" ></TextBlock>
 
-                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" Text="{Binding Nom, Mode=TwoWay}"></TextBox>
+                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" x:Name="NomCour"></TextBox>
 
                 <TextBlock FontFamily="comic sans ms" Grid.Row="1" FontSize="15" HorizontalAlignment="Left" Text="Résultat : " ></TextBlock>
-                <ListView Grid.Column="1" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2" ItemsSource="{Binding Liste}" SelectedItem="{Binding Calcul}">
+                <ListView Grid.Column="1" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="2" ItemsSource="{Binding ListeEtuParCour}">
                     <ListView.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="25"/>
@@ -80,10 +82,10 @@
                             <GridViewColumn Header="Nom"  Width="70" DisplayMemberBinding="{Binding Nom}"/>
                             <GridViewColumn Header="Prenom" Width="70" DisplayMemberBinding="{Binding Prenom}"/>
                             <GridViewColumn Header="Code Permanant" Width="100" DisplayMemberBinding="{Binding CodePermanant}"/>
-                            <GridViewColumn Header="Naissance"  Width="70" DisplayMemberBinding="{Binding Nom}"/>
-                            <GridViewColumn Header="Inscription" Width="70" DisplayMemberBinding="{Binding Prenom}"/>
-                            <GridViewColumn Header="Diplome" Width="70" DisplayMemberBinding="{Binding CodePermanant}"/>
-                            <GridViewColumn Header="No de DA" Width="70" DisplayMemberBinding="{Binding CodePermanant}"/>
+                            <GridViewColumn Header="Naissance"  Width="70" DisplayMemberBinding="{Binding Naissance}"/>
+                            <GridViewColumn Header="Inscription" Width="70" DisplayMemberBinding="{Binding Inscription}"/>
+                            <GridViewColumn Header="Diplome" Width="70" DisplayMemberBinding="{Binding Diplome}"/>
+                            <GridViewColumn Header="No de DA" Width="70" DisplayMemberBinding="{Binding Da}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -92,14 +94,14 @@
         </Border>
 
 
-        <Button Content="Envoyer"  Grid.Row="2" Height="40" HorizontalAlignment="right" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0" Template="{DynamicResource ButtonBaseControlTemplate1}">
+        <Button Content="Envoyer"  Grid.Row="2" Height="40" HorizontalAlignment="right" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0" Template="{DynamicResource ButtonBaseControlTemplate1}" Click="Button_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Fermer"  Grid.Row="2" Height="40" HorizontalAlignment="Left" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0" >
+        <Button Content="Fermer"  Grid.Row="2" Height="40" HorizontalAlignment="Left" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0" Click="Button_Click_1" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

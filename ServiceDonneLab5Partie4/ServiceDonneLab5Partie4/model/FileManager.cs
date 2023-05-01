@@ -16,19 +16,38 @@ namespace ServiceDonneLab5Partie4.model
             {
                 File.Delete("apikeyFile");
             }
-            FileStream fs = File.Create("apikeyFile");
-            using (StreamWriter writer = new StreamWriter("apikeyFile"))
+
+            try
             {
-                writer.WriteLine("Monica Rathbun");
-                writer.WriteLine("Vidya Agarwal");
-                writer.WriteLine("Mahesh Chand");
-                writer.WriteLine("Vijay Anand");
-                writer.WriteLine("Jignesh Trivedi");
+                // Creating a new file, or overwrite
+                // if the file already exists.
+                using (FileStream fs = File.Create("apikeyFile"))
+                {
+                    // Adding some info into the file
+                    byte[] info = new UTF8Encoding(true).GetBytes(apikey);
+                    fs.Write(info, 0, info.Length);
+                }
+
             }
+            catch(Exception e)
+            {
+                
+            }
+            
+            
         }
         public static string GetApiKey()
         {
-            return "";
+            string retour = "";
+            using (StreamReader sr = File.OpenText("apikeyFile"))
+            {
+                string s = "";
+                while ((s = sr.ReadLine()) != null)
+                {
+                   retour = s;
+                }
+            }
+            return retour;
         }
     }
 }

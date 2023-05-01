@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ServiceDonneLab5Partie4.vue"
         mc:Ignorable="d"
+        xmlns:viewmodele="clr-namespace:ServiceDonneLab5Partie4.vue_model" 
+        d:DataContext="{d:DesignInstance Type=viewmodele:ProgramVM}"
         Title="CreerCour" Height="450" Width="800">
     <Window.Resources>
         <ControlTemplate x:Key="ButtonBaseControlTemplate1" TargetType="{x:Type ButtonBase}">
@@ -43,7 +45,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" FontFamily="comic sans ms" FontSize="40" FontWeight="ExtraBold" Foreground="RoyalBlue" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">Récupérer les cours d'un étudiant</TextBlock>
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" FontFamily="comic sans ms" FontSize="40" FontWeight="ExtraBold" Foreground="RoyalBlue" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">Créer un cour</TextBlock>
 
 
         <Border Grid.Column="1" Grid.Row="1" Margin="10" Background="White" BorderBrush="Black" BorderThickness="3" CornerRadius="10" Padding="8,20">
@@ -66,26 +68,29 @@
 
                 <TextBlock FontFamily="comic sans ms" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Text="Sigle :" ></TextBlock>
 
-                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" Text="{Binding Nom, Mode=TwoWay}"></TextBox>
+                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="0" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" x:Name="Sigle"></TextBox>
                 <TextBlock FontFamily="comic sans ms" Grid.Row="1" FontSize="15" HorizontalAlignment="Left" Text="Titre :" ></TextBlock>
 
-                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="1" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" Text="{Binding Nom, Mode=TwoWay}"></TextBox>
+                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="1" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" x:Name="Titre"></TextBox>
                 <TextBlock FontFamily="comic sans ms" Grid.Row="2" FontSize="15" HorizontalAlignment="Left" Text="Durée : " ></TextBlock>
-                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="2" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" Text="{Binding Nom, Mode=TwoWay}"></TextBox>
+                <TextBlock FontFamily="comic sans ms" Grid.Row="3" FontSize="15" HorizontalAlignment="Left" Text="Réponse : " ></TextBlock>
+                <TextBlock FontFamily="comic sans ms" Grid.Column="2" Grid.Row="3" FontSize="15" HorizontalAlignment="Left" Text="{Binding RepCreeCour}"></TextBlock>
+
+                <TextBox FontFamily="comic sans ms" Grid.Column="2" Grid.Row="2" FontSize="15" HorizontalAlignment="Left" Width="200" Margin="2" VerticalAlignment="Top" x:Name="Duree"></TextBox>
                 
 
             </Grid>
         </Border>
 
 
-        <Button Content="Envoyer"  Grid.Row="2" Height="40" HorizontalAlignment="right" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0" Template="{DynamicResource ButtonBaseControlTemplate1}">
+        <Button Content="Envoyer"  Grid.Row="2" Height="40" HorizontalAlignment="right" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0" Template="{DynamicResource ButtonBaseControlTemplate1}" Click="Button_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Fermer"  Grid.Row="2" Height="40" HorizontalAlignment="Left" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0">
+        <Button Content="Fermer"  Grid.Row="2" Height="40" HorizontalAlignment="Left" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="15" Margin="30,0" Click="Button_Click_1">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

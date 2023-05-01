@@ -20,16 +20,22 @@ namespace ServiceDonneLab5Partie4.vue
     /// </summary>
     public partial class Parametre : Window
     {
+        ProgramVM vm;
         public Parametre()
         {
             InitializeComponent();
-            ProgramVM vm = new ProgramVM();
+             vm = new ProgramVM();
             this.DataContext = vm;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            vm.GenerateApiKey();
         }
     }
 }

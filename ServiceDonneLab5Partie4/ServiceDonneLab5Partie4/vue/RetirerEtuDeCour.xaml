@@ -43,7 +43,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" FontFamily="comic sans ms" FontSize="40" FontWeight="ExtraBold" Foreground="RoyalBlue" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">Récupérer les cours d'un étudiant</TextBlock>
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="5" FontFamily="comic sans ms" FontSize="40" FontWeight="ExtraBold" Foreground="RoyalBlue" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5">Récupérer les étudiants d'un cour</TextBlock>
 
 
         <Border Grid.Column="1" Grid.Row="1" Margin="10" Background="White" BorderBrush="Black" BorderThickness="3" CornerRadius="10" Padding="8,20">

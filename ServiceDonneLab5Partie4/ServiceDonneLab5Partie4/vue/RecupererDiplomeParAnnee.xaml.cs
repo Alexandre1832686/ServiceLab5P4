@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceDonneLab5Partie4.vue_model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,27 @@ namespace ServiceDonneLab5Partie4.vue
     /// </summary>
     public partial class RecupererDiplomeParAnnee : Window
     {
+        ProgramVM vm;
         public RecupererDiplomeParAnnee()
         {
             InitializeComponent();
+            vm = new ProgramVM();
+            this.DataContext = vm;
+        }
+
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (annee.Text != "")
+                vm.GetDiplomeParAnnee(annee.Text);
+            else
+                vm.GetDiplomeParAnnee("qwertyuipasdfghklxzcvbnmINVLIDCODEPERMANANTqwertyuiopasdfghjklzxcvbnm");
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
