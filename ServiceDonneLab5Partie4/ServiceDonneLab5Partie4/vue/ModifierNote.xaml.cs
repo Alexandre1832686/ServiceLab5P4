@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceDonneLab5Partie4.vue_model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,26 @@ namespace ServiceDonneLab5Partie4.vue
     /// </summary>
     public partial class ModifierNote : Window
     {
+
+        ProgramVM vm;
         public ModifierNote()
         {
             InitializeComponent();
+            vm = new ProgramVM();
+            this.DataContext = vm;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (prenom.Text != "" && nom.Text != "" && note.Text != "" && sigle.Text != "" && session.Text != "")
+                vm.ModifierNote(prenom.Text, nom.Text,note.Text,sigle.Text,session.Text);
+            else
+                vm.GetBuletin("qwertyuipasdfghklxzcvbnmINVLIDCODEPERMANANTqwertyuiopasdfghjklzxcvbnm", "qwertyuipasdfghklxzcvbnmINVLIDCODEPERMANANTqwertyuiopasdfghjklzxcvbnm");
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

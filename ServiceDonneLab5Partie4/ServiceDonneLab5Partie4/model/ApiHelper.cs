@@ -7,6 +7,10 @@ using System.Net.Http;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using ServiceDonneLab5Partie4.vue;
+using System.Reflection.Metadata;
+using System.Windows.Media;
 
 namespace ServiceDonneLab5Partie4.model
 {
@@ -259,19 +263,19 @@ namespace ServiceDonneLab5Partie4.model
         public static async Task<string> CreeCour(string Sigle,string Titre,string Duree)
         {
             string url = "";
-            url = ApiHelper.ApiClient.BaseAddress + "mon/CreerCour/" + Sigle + "/" + Titre  +"/" + Duree;
+            url = ApiHelper.ApiClient.BaseAddress + "mon/CreerCour/" + Sigle + "/" + Titre + "/" + Duree;
             try
             {
-                using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url).ConfigureAwait(false))
+                using (HttpResponseMessage message = await ApiHelper.ApiClient.PostAsync(url, new StringContent(string.Empty)))
                 {
-                    if (response.IsSuccessStatusCode)
+                    if (message.IsSuccessStatusCode)
                     {
-                        string rep = await response.Content.ReadAsAsync<string>().ConfigureAwait(false);
+                        string rep = await message.Content.ReadAsAsync<string>().ConfigureAwait(false);
                         return rep;
                     }
                     else
                     {
-                        throw new Exception(response.ReasonPhrase);
+                        throw new Exception(message.ReasonPhrase);
                     }
                 }
             }
@@ -280,7 +284,86 @@ namespace ServiceDonneLab5Partie4.model
                 throw e;
             }
         }
-        
 
+        public static async Task<string> AjouterEtuCour(string prenom, string nom, string sigle)
+        {
+            string url = "";
+            url = "mon/AjoutEtuACour/" + prenom + "/" + nom + "/" + sigle;
+            try
+            {
+                using (var message = await ApiHelper.ApiClient.PutAsync(url, new StringContent(string.Empty)))
+                {
+                    if (message.StatusCode == HttpStatusCode.OK)
+                    {
+                        string a = await message.Content.ReadAsAsync<string>();
+                        return a;
+                    }
+                    else
+                    {
+                        throw new Exception(message.StatusCode.ToString());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+
+            
+        }
+        public static async Task<string> ModifierNote(string prenom, string nom, int note, string sigle, int session)
+        {
+            string url = "";
+            url = "mon/ModifierNote/" + prenom + "/" + nom + "/" + note + "/" + sigle + "/" + session;
+            try
+            {
+                using (var message = await ApiHelper.ApiClient.PutAsync(url, new StringContent(string.Empty)))
+                {
+                    if (message.StatusCode == HttpStatusCode.OK)
+                    {
+                        string a = await message.Content.ReadAsAsync<string>();
+                        return a;
+                    }
+                    else
+                    {
+                        throw new Exception(message.StatusCode.ToString());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+
+
+        }
+
+        public static async Task<string> RetirerEtuCour(string prenom, string nom, string sigle, int session)
+        {
+            string url = "";
+            url = "mon/DeleteEtuFromCours/" + prenom + "/" + nom + "/" + sigle + "/" + session;
+            try
+            {
+                using (var message = await ApiHelper.ApiClient.DeleteAsync(url))
+                {
+                    if (message.StatusCode == HttpStatusCode.OK)
+                    {
+                        string a = await message.Content.ReadAsAsync<string>();
+                        return a;
+                    }
+                    else
+                    {
+                        throw new Exception(message.StatusCode.ToString());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+
+
+        }
+        
     }
 }

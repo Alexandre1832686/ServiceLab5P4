@@ -19,7 +19,7 @@
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" FontFamily="comic sans ms" FontSize="40" FontWeight="ExtraBold" Foreground="RoyalBlue" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Text="Message" x:Name="Msg" TextWrapping="Wrap"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="3" FontFamily="comic sans ms" FontSize="20" FontWeight="ExtraBold" Foreground="RoyalBlue" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" Text="Message" x:Name="Msg" TextWrapping="Wrap"></TextBlock>
 
         <Button Content="Fermer" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Height="40" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center" Background="RoyalBlue" BorderBrush="Black" BorderThickness="2" Foreground="White" FontFamily="comic sans ms" FontWeight="bold" FontSize="12" Margin="10" Click="Fermer">
             <Button.Resources>

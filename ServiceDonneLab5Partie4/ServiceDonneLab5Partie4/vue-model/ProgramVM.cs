@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using ServiceDonneLab5Partie4.model;
+using ServiceDonneLab5Partie4.vue;
 
 namespace ServiceDonneLab5Partie4.vue_model
 {
@@ -49,7 +50,6 @@ namespace ServiceDonneLab5Partie4.vue_model
                 ValeurChange("GeneratedApiKey");
             }
         }
-
         static string? _parametreApiKey;
         static public string? ParametreApiKey
         {
@@ -64,6 +64,9 @@ namespace ServiceDonneLab5Partie4.vue_model
                 FileManager.EnregisterAPIKEY(value);
             }
         }
+
+
+
 
         List<Cour> _listeCourParEtu;
         public List<Cour> ListeCourParEtu
@@ -122,11 +125,19 @@ namespace ServiceDonneLab5Partie4.vue_model
             }
         }
 
+
+
+
+
         public ProgramVM()
         {
             ApiHelper.InitializeClient();
             ParametreApiKey = FileManager.GetApiKey();
         }
+
+
+
+
 
         public async void GetNom(string codePerma)
         {
@@ -137,12 +148,10 @@ namespace ServiceDonneLab5Partie4.vue_model
                 RecupererNomNom = "Clee invalide";
             }
         }
-
         public async void GenerateApiKey()
         {
             GeneratedApiKey = await ApiHelper.GenerateApiKey();
         }
-
         public async void GetcourParEtu(string codePerma)
         {
             if (await ApiHelper.checkApiKey(ParametreApiKey))
@@ -165,7 +174,6 @@ namespace ServiceDonneLab5Partie4.vue_model
                 ListeEtuParCour = new List<Student>();
             }
         }
-
         public async void GetCourParProf(string prenom, string nom)
         {
             if (await ApiHelper.checkApiKey(ParametreApiKey))
@@ -199,7 +207,6 @@ namespace ServiceDonneLab5Partie4.vue_model
                 ListeDiplome = new List<Student>();
             }
         }
-
         public async void CreeCour(string Sigle, string Titre, string Duree)
         {
             if (await ApiHelper.checkApiKey(ParametreApiKey))
@@ -212,5 +219,101 @@ namespace ServiceDonneLab5Partie4.vue_model
             }
             
         }
+        public async void AjouterEtuCour(string prenom, string nom, string Sigle)
+        {
+            if (await ApiHelper.checkApiKey(ParametreApiKey))
+            {
+                string rep = await ApiHelper.AjouterEtuCour(prenom, nom, Sigle);
+                
+                    Message m = new Message(rep);
+                    m.Show();
+                
+            }
+            else
+            {
+                Message m = new Message("Clée invalide");
+                m.Show();
+            }
+            
+        }
+        public async void ModifierNote(string prenom, string nom, string note,string sigle, string session)
+        {
+            if (await ApiHelper.checkApiKey(ParametreApiKey))
+            {
+                bool check = true;
+                int sessionInt = 0;
+                string rep = "";
+                check = int.TryParse(note, out int noteInt);
+                if(check)
+                {
+                    check = int.TryParse(session, out  sessionInt);
+                }
+                else
+                {
+                    Message m2 = new Message("données entrées invalides");
+                    m2.Show();
+                    return;
+                }
+
+                if(check)
+                {
+                    rep = await ApiHelper.ModifierNote(prenom, nom, noteInt, sigle, sessionInt);
+
+                }
+                else
+                {
+                    Message m2 = new Message("données entrées invalides");
+                    m2.Show();
+                    return;
+                }
+
+                Message m = new Message(rep);
+                m.Show();
+
+            }
+            else
+            {
+                Message m = new Message("Clée invalide");
+                m.Show();
+            }
+
+        }
+        public async void RetirerEtuCour(string prenom, string nom, string sigle, string session)
+        {
+            if (await ApiHelper.checkApiKey(ParametreApiKey))
+            {
+                bool check = true;
+                int sessionInt = 0;
+                string rep = "";
+                
+                
+                check = int.TryParse(session, out sessionInt);
+                
+
+                if (check)
+                {
+                    rep = await ApiHelper.RetirerEtuCour(prenom, nom, sigle, sessionInt);
+
+                }
+                else
+                {
+                    Message m2 = new Message("données entrées invalides");
+                    m2.Show();
+                    return;
+                }
+
+                Message m = new Message(rep);
+                m.Show();
+
+            }
+            else
+            {
+                Message m = new Message("Clée invalide");
+                m.Show();
+            }
+
+        }
+        
+
     }
 }

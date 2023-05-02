@@ -22,6 +22,7 @@ namespace ServiceDonneLab5Partie4.vue
         public Message(string message)
         {
             InitializeComponent();
+            Msg.Text= message;
         }
 
         private void Fermer(object sender, RoutedEventArgs e)

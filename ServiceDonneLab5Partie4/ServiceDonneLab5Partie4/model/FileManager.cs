@@ -39,14 +39,23 @@ namespace ServiceDonneLab5Partie4.model
         public static string GetApiKey()
         {
             string retour = "";
-            using (StreamReader sr = File.OpenText("apikeyFile"))
+            try
             {
-                string s = "";
-                while ((s = sr.ReadLine()) != null)
+                using (StreamReader sr = File.OpenText("apikeyFile"))
                 {
-                   retour = s;
+                    string s = "";
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        retour = s;
+                    }
                 }
             }
+            catch (Exception e)
+            {
+                File.Create("apikeyFile");
+                GetApiKey();
+            }
+            
             return retour;
         }
     }

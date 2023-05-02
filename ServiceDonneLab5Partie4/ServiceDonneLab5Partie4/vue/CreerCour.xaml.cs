@@ -31,7 +31,7 @@ namespace ServiceDonneLab5Partie4.vue
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (Sigle.Text != "" && Duree.Text != "" && Titre.Text != "")
-                vm.CreeCour(Sigle.Text,Duree.Text,Titre.Text);
+                vm.CreeCour(Sigle.Text,Titre.Text,Duree.Text);
             else
                 vm.CreeCour("qwertyuipasdfghklxzcvbnmINVLIDCODEPERMANANTqwertyuiopasdfghjklzxcvbnm", "qwertyuipasdfghklxzcvbnmINVLIDCODEPERMANANTqwertyuiopasdfghjklzxcvbnm", "qwertyuipasdfghklxzcvbnmINVLIDCODEPERMANANTqwertyuiopasdfghjklzxcvbnm");
 
