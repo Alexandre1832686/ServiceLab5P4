@@ -89,5 +89,41 @@ namespace ServiceDonneLab5Partie4.vue
             Parametre p = new Parametre();
             p.Show();
         }
+
+        private void TravauxSemaine(object sender, RoutedEventArgs e)
+        {
+            TravauxSemaine t = new TravauxSemaine();
+            t.Show();
+        }
+
+        private void TravauxSemaineCSGP(object sender, RoutedEventArgs e)
+        {
+            TravauxSemaineECSGP t = new TravauxSemaineECSGP();
+            t.Show();
+        }
+
+        private void GetListeTravauxEtu(object sender, RoutedEventArgs e)
+        {
+            ListetravauxEtu l = new ListetravauxEtu();
+            l.Show();
+        }
+
+        private void CreerTravail(object sender, RoutedEventArgs e)
+        {
+            CreerTravail c= new CreerTravail();
+            c.Show();
+        }
+
+        private void InscrireNote(object sender, RoutedEventArgs e)
+        {
+            InscrireNote i = new InscrireNote();
+            i.Show();
+        }
+
+        private void ModifierNote(object sender, RoutedEventArgs e)
+        {
+            ModifierNoteTravail m = new ModifierNoteTravail();
+            m.Show();
+        }
     }
 }

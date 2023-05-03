@@ -364,6 +364,33 @@ namespace ServiceDonneLab5Partie4.model
 
 
         }
+        public static async Task<string> CreerTravail(int Ponderation, DateTime date)
+        {
+            string url = "";
+            url = "Exam/CreerTravail/" + Ponderation + "/" + date;
+            try
+            {
+                using (var message = await ApiHelper.ApiClient.PostAsync(url, new StringContent(string.Empty)))
+                {
+                    if (message.StatusCode == HttpStatusCode.OK)
+                    {
+                        string a = await message.Content.ReadAsAsync<string>();
+                        return a;
+                    }
+                    else
+                    {
+                        throw new Exception(message.StatusCode.ToString());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                return "";
+            }
+
+
+        }
         
+
     }
 }

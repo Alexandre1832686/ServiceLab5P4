@@ -313,7 +313,22 @@ namespace ServiceDonneLab5Partie4.vue_model
             }
 
         }
+        public async void CreerTravail(int ponderation, DateTime date)
+        {
+            if (await ApiHelper.checkApiKey(ParametreApiKey))
+            {
+                Message m = new Message(await ApiHelper.CreerTravail(ponderation, date));
+                m.Show();
+            }
+            else
+            {
+                Message m = new Message("Clée invalide");
+                m.Show();
+            }
+
+        }
         
+
 
     }
 }
